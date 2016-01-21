@@ -1,0 +1,59 @@
+.navbar{
+  background-color: #08298A;
+  border: none;
+}
+
+.adminImage{
+  position: relative;
+}
+
+#email{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.addInfo{
+  font-size: 1.5em;
+  color: white;
+}
+
+.headlineContainer{
+  background-color: gray;
+  width: 100%;
+  margin-top: 2%;
+}
+
+.infoContainer{
+  margin-top: 2%;
+}
+
+.headline{
+  margin-left: 1em;
+  color: white;
+  font-size: 1.5em
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-header > a,
+.navbar-default .navbar-nav > li {
+    color: white!important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-header > a:hover,
+.navbar-default .navbar-nav > li:hover {
+    background-color: white;
+    color: #3F51B5!important;
+}
+
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
+/*  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;*/
+}
+#newImage{
+  width: 100%;
+}
