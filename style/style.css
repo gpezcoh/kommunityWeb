@@ -68,18 +68,32 @@
   font-size: 1.5em
 }
 
+.navbar, .navbar a, .navbar a:visited{
+  color: #fff;
+}
+
 .navbar-default .navbar-nav > li > a,
 .navbar-default .navbar-header > a,
 .navbar-default .navbar-nav > li {
     color: white!important;
+    
 }
 
+.navbar .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-header > a:hover,
 .navbar-default .navbar-nav > li:hover {
-    background-color: white;
-    color: #3F51B5!important;
+    background-color: #fff;
+    color: #428bca;
 }
+
+/*.navbar-nav a, .navbar-header, {
+    border-bottom: 5px #fff solid;
+}
+
+.navbar-nav a:hover{
+    border-bottom: 5px #428bca solid;
+}*/
 
 .container-fluid{
   padding-left: -10px;
@@ -91,4 +105,8 @@
 }
 #newImage{
   width: 100%;
+}
+
+.container{
+  margin-top:10px; 
 }

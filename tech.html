@@ -12,162 +12,165 @@
     <link href="style/style.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Kommunity</a>
+    <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Kommunity</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+    <!--         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+            <li><a href="index.html">New! <span class="badge">7</span></a></li>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Soccer</a></li>
+            <li><a href="tech.html">Tech <span class="badge">2</span></a></li>
+            <li><a href="#">E-club</a></li>
+            <li><a href="#">Join Group &#x271a;</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Settings</a></li>
+    <!--             <li role="separator" class="divider"></li>
+     -->      </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="divider"></div>
+  <div class="container theme-showcase">
+    <div class="container-fluid">
+      <div class="adminImage">
+        <img id="newImage" src="images/tech.jpg" alt="" />
+        <button id="email" type="button" class="btn btn-success">Send Email</button>
+      </div>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-<!--         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-        <li><a href="index.html">New! <span class="badge">7</span></a></li>
-        <li><a href="#">Consulting</a></li>
-        <li><a href="#">Soccer</a></li>
-        <li><a href="tech.html">Tech <span class="badge">2</span></a></li>
-        <li><a href="#">E-club</a></li>
-        <li><a href="#">Join Group &#x271a;</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Settings</a></li>
-<!--             <li role="separator" class="divider"></li>
- -->      </ul>
-        </li>
-      </ul>
-    </div>
+      <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">News</div>
+        </div>
+        <div class="col-md-1">
+          <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="News">
+            &#x271a;
+          </a>
+        </div>
+      </div>
+       <div class="container-fluid infoContainer">
+        <ul class="info">
+          <ul>
+            <div class="new">&#10004;</div>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Technology in 2015</a> 
+            <p class="summary col-md-8"> Rohan Rajiv, our fearless High Tech Club President has written an incredible, in-depth technological review of the year. Check it out here!</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+     <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">Events</div>
+        </div>
+        <div class="col-md-1">
+          <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="Event">
+            &#x271a;
+          </a>      </div>
+      </div>
+      <div class="container-fluid infoContainer">
+        <ul class="info">
+          <ul>
+            <div class="new">&#10004;</div>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
+            <p class="col-md-6"> 11/12 @ 2:00pm</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+          <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Digital Marketing Bootcamp</a> 
+            <p class="col-md-6"> 12/05 @ 5:00pm</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+      <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">Job Opportunities</div>
+        </div>
+        <div class="col-md-1">
+          <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="Job">
+            &#x271a;
+          </a>      
+        </div>
+      </div>
+      <div class="container-fluid infoContainer">
+        <ul class="info">
+         <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
+            <p class="col-md-6"> Due 01/13</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Add</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <label id="label1" for="first" class="control-label">Date</label>
+                    <input type="text" class="form-control" id="first">
+                  </div>
+                  <div class="form-group">
+                    <label id="label2" for="second" class="control-label">Location</label>
+                    <input type="text" class="form-control" id="second">
+                  </div>
+                  <div class="form-group">
+                    <label id="label3" for="third" class="control-label">Summary</label>
+                    <input type="text" class="form-control" id="third">
+                  </div>
+                  <div class="form-group">
+                    <label id="label4" for="fourth" class="control-label">Description</label>
+                    <textarea class="form-control" id="fourth"></textarea>
+                  </div>
+                   <div class="form-group">
+                    <label id="label5" for="fifth" class="control-label">Type</label>
+                    <input type="text" class="form-control" id="fifth">
+                  </div>
+                  <div class="form-group">
+                    <label id="label6" for="sixth" class="control-label">Link</label>
+                    <input type="text" class="form-control" id="sixth">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </div>
-</nav>
-  <div class="container-fluid">
-    <div class="adminImage">
-      <img id="newImage" src="images/tech.jpg" alt="" />
-      <button id="email" type="button" class="btn btn-success">Send Email</button>
-    </div>
-  </div>
-
-    <div class="container-fluid headlineContainer">
-      <div class="col-md-11">
-        <div class="headline">News</div>
-      </div>
-      <div class="col-md-1">
-        <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="News">
-          &#x271a;
-        </a>
-      </div>
-    </div>
-     <div class="container-fluid infoContainer">
-      <ul class="info">
-        <ul>
-          <div class="new">&#10004;</div>
-          <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Technology in 2015</a> 
-          <p class="summary col-md-8"> Rohan Rajiv, our fearless High Tech Club President has written an incredible, in-depth technological review of the year. Check it out here!</p>
-          <p class="description col-md-12"> description description description description description description description description description description description description description description 
-            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-          </p>
-        </ul>
-      </ul>
-    </div>
-   <div class="container-fluid headlineContainer">
-      <div class="col-md-11">
-        <div class="headline">Events</div>
-      </div>
-      <div class="col-md-1">
-        <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="Event">
-          &#x271a;
-        </a>      </div>
-    </div>
-    <div class="container-fluid infoContainer">
-      <ul class="info">
-        <ul>
-          <div class="new">&#10004;</div>
-          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
-          <p class="col-md-6"> 11/12 @ 2:00pm</p>
-          <p class="description col-md-12"> description description description description description description description description description description description description description description 
-            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-          </p>
-        </ul>
-        <ul>
-          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Digital Marketing Bootcamp</a> 
-          <p class="col-md-6"> 12/05 @ 5:00pm</p>
-          <p class="description col-md-12"> description description description description description description description description description description description description description description 
-            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-          </p>
-        </ul>
-      </ul>
-    </div>
-    <div class="container-fluid headlineContainer">
-      <div class="col-md-11">
-        <div class="headline">Job Opportunities</div>
-      </div>
-      <div class="col-md-1">
-        <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="Job">
-          &#x271a;
-        </a>      
-      </div>
-    </div>
-    <div class="container-fluid infoContainer">
-      <ul class="info">
-       <ul>
-          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
-          <p class="col-md-6"> Due 01/13</p>
-          <p class="description col-md-12"> description description description description description description description description description description description description description description 
-            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-          </p>
-        </ul>
-      </ul>
-    </div>
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Add</h4>
-          </div>
-          <div class="modal-body">
-             <form>
-                <div class="form-group">
-                  <label id="label1" for="first" class="control-label">Date</label>
-                  <input type="text" class="form-control" id="first">
-                </div>
-                <div class="form-group">
-                  <label id="label2" for="second" class="control-label">Location</label>
-                  <input type="text" class="form-control" id="second">
-                </div>
-                <div class="form-group">
-                  <label id="label3" for="third" class="control-label">Summary</label>
-                  <input type="text" class="form-control" id="third">
-                </div>
-                <div class="form-group">
-                  <label id="label4" for="fourth" class="control-label">Description</label>
-                  <textarea class="form-control" id="fourth"></textarea>
-                </div>
-                 <div class="form-group">
-                  <label id="label5" for="fifth" class="control-label">Type</label>
-                  <input type="text" class="form-control" id="fifth">
-                </div>
-                <div class="form-group">
-                  <label id="label6" for="sixth" class="control-label">Link</label>
-                  <input type="text" class="form-control" id="sixth">
-                </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
 
 
     <div class="divider"></div>
