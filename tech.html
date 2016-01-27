@@ -32,13 +32,12 @@
         <li><a href="#">Soccer</a></li>
         <li><a href="tech.html">Tech</a></li>
         <li><a href="#">E-club</a></li>
-        <li><a href="#">&#x271a;</a></li>
+        <li><a href="#">Join Group &#x271a;</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Create Group</a></li>
             <li><a href="#">Account</a></li>
             <li><a href="#">Settings</a></li>
 <!--             <li role="separator" class="divider"></li>
@@ -68,8 +67,11 @@
      <div class="container-fluid infoContainer">
       <ul class="info">
         <ul>
-          <a href="#" class='col-md-4'>Technology in 2015</a> 
-          <p class="col-md-8"> Rohan Rajiv, our fearless High Tech Club President has written an incredible, in-depth technological review of the year. Check it out here!</p>
+          <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Technology in 2015</a> 
+          <p class="summary col-md-8"> Rohan Rajiv, our fearless High Tech Club President has written an incredible, in-depth technological review of the year. Check it out here!</p>
+          <p class="description col-md-12"> description description description description description description description description description description description description description description 
+            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+          </p>
         </ul>
       </ul>
     </div>
@@ -85,12 +87,18 @@
     <div class="container-fluid infoContainer">
       <ul class="info">
         <ul>
-          <a href="#" class='col-md-6'>KMC Brand Strategy Workshop</a> 
+          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
           <p class="col-md-6"> 11/12 @ 2:00pm</p>
+          <p class="description col-md-12"> description description description description description description description description description description description description description description 
+            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+          </p>
         </ul>
         <ul>
-          <a href="#" class='col-md-6'>Digital Marketing Bootcamp</a> 
+          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Digital Marketing Bootcamp</a> 
           <p class="col-md-6"> 12/05 @ 5:00pm</p>
+          <p class="description col-md-12"> description description description description description description description description description description description description description description 
+            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+          </p>
         </ul>
       </ul>
     </div>
@@ -106,9 +114,12 @@
     </div>
     <div class="container-fluid infoContainer">
       <ul class="info">
-        <ul>
-          <a href="#" class='col-md-6'>Cisco Systems - Business Strategy Intern</a> 
+       <ul>
+          <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
           <p class="col-md-6"> Due 01/13</p>
+          <p class="description col-md-12"> description description description description description description description description description description description description description description 
+            <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+          </p>
         </ul>
       </ul>
     </div>
@@ -156,6 +167,9 @@
       </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
+
+    <div class="divider"></div>
+
     <footer class="footer">
       <div class="container-fluid">
         <div class='col-md-6'>
@@ -171,5 +185,6 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/modal.js"></script>
+    <script src="js/posts.js"></script>
   </body>
 </html>
