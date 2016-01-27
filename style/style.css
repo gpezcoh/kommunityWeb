@@ -3,6 +3,17 @@
   border: none;
 }
 
+.new{
+  position: absolute;
+  color: red;
+  font-size: 1.5em;
+  left: 70px;
+}
+
+.badge{
+  background-color: red;
+}
+
 .divider{
   height: 50px;
   width: 100%;
