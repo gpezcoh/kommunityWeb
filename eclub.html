@@ -47,90 +47,120 @@
         </div>
       </div>
     </nav>
-    <div class="divider"></div>
-    <div class="container theme-showcase">
-      <div class="container-fluid">
-          <img id="newImage" src="images/new.jpg" alt="" />
+  <div class="divider"></div>
+  <div class="container theme-showcase">
+    <div class="container-fluid">
+      <div class="adminImage">
+        <img id="newImage" src="images/eclub.jpg" alt=""  />
       </div>
+    </div>
 
       <div class="container-fluid headlineContainer">
-        <div class="headline">News</div>
+        <div class="col-md-11">
+          <div class="headline">News</div>
+        </div>
+        <div class="col-md-1">
+        </div>
       </div>
        <div class="container-fluid infoContainer">
         <ul class="info">
           <ul>
-            <div class='col-md-2'><strong>Tech</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Technology in 2015</a> 
-            <p class="summary col-md-6"> Rohan Rajiv, our fearless High Tech Club President has written an incredible, in-depth technological review of the year. Check it out here!</p>
-            <p class="description col-md-12"> description description description description description description description description description description description description description description 
-              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-            </p>
-          </ul>
-          <ul>
-            <div class='col-md-2'><strong>Soccer</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Fabregas returns to form</a> 
-            <p class="summary col-md-6"> Fabregas returns to form Chelsea's 3-3 draw with Everton</p>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>What's happening in club</a> 
+            <p class="summary col-md-8"> Tyler PD hosts retirement ceremony for two longtime officers </p>
             <p class="description col-md-12"> description description description description description description description description description description description description description description 
               <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
             </p>
           </ul>
         </ul>
       </div>
-      <div class="container-fluid headlineContainer">
-        <div class="headline">Events</div>
+     <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">Events</div>
+        </div>
+        <div class="col-md-1">
+      </div>
       </div>
       <div class="container-fluid infoContainer">
         <ul class="info">
           <ul>
-            <div class='col-md-2'><strong>Tech</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-4'>KMC Brand Strategy Workshop</a> 
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Club Night</a> 
             <p class="col-md-6"> 11/12 @ 2:00pm</p>
-            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+            <p class="description col-md-12"> Food will be served
               <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
             </p>
           </ul>
           <ul>
-            <div class='col-md-2'><strong>Tech</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-4'>Digital Marketing Bootcamp</a> 
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Northwestern Soccer Bootcamp</a> 
             <p class="col-md-6"> 12/05 @ 5:00pm</p>
             <p class="description col-md-12"> description description description description description description description description description description description description description description 
               <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
             </p>
           </ul>
-           <ul>
-            <div class='col-md-2'><strong>E-club</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-4'>KMC Brand Strategy Workshop</a> 
-            <p class="col-md-6"> 12/07 @ 3:00pm</p>
-            <p class="description col-md-12"> description description description description description description description description description description description description description description 
-              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-            </p>
-          </ul>
         </ul>
       </div>
       <div class="container-fluid headlineContainer">
-        <div class="headline">Job Opportunities</div>
+        <div class="col-md-11">
+          <div class="headline">Job Opportunities</div>
+        </div>
+        <div class="col-md-1">  
+        </div>
       </div>
       <div class="container-fluid infoContainer">
         <ul class="info">
-          <ul>
-            <div class='col-md-2'><strong>Tech</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-4'>Cisco Systems - Business Strategy Intern</a> 
+         <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
             <p class="col-md-6"> Due 01/13</p>
             <p class="description col-md-12"> description description description description description description description description description description description description description description 
               <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
             </p>
           </ul>
-          <ul>
-            <div class='col-md-2'><strong>Retail</strong></div> 
-            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-4'>WalMart - Summer Internship</a> 
-            <p class="col-md-6"> Due 02/16</p>
-            <p class="description col-md-12"> description description description description description description description description description description description description description description 
-              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-            </p>
-          </ul>
         </ul>
       </div>
-            <div class="modal fade" id="joinGroups" tabindex="-1" role="dialog">
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Add</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <label id="label1" for="first" class="control-label">Date</label>
+                    <input type="text" class="form-control" id="first">
+                  </div>
+                  <div class="form-group">
+                    <label id="label2" for="second" class="control-label">Location</label>
+                    <input type="text" class="form-control" id="second">
+                  </div>
+                  <div class="form-group">
+                    <label id="label3" for="third" class="control-label">Summary</label>
+                    <input type="text" class="form-control" id="third">
+                  </div>
+                  <div class="form-group">
+                    <label id="label4" for="fourth" class="control-label">Description</label>
+                    <textarea class="form-control" id="fourth"></textarea>
+                  </div>
+                   <div class="form-group">
+                    <label id="label5" for="fifth" class="control-label">Type</label>
+                    <input type="text" class="form-control" id="fifth">
+                  </div>
+                  <div class="form-group">
+                    <label id="label6" for="sixth" class="control-label">Link</label>
+                    <input type="text" class="form-control" id="sixth">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+      <div class="modal fade" id="joinGroups" tabindex="-1" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -200,7 +230,43 @@
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    </div>
+  </div>
+
+      <div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="sendMailLabel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Send Newsletter</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <label id="label1" for="first" class="control-label">To: </label>
+                    <input type="text" class="form-control" id="first" placeholder="All Club Members">
+                  </div>
+                  <div class="form-group">
+                    <label id="label2" for="second" class="control-label">CC: </label>
+                    <input type="text" class="form-control" id="second" placeholder="All Presidents">
+                  </div>
+                  <div class="form-group">
+                    <label id="label3" for="third" class="control-label">Subject</label>
+                    <input type="text" class="form-control" id="third">
+                  </div>
+                  <div class="form-group">
+                    <label id="label4" for="fourth" class="control-label">Letter Layout</label>
+                    <img id="newImage" src="images/Newsletter.png" alt="" width="300" />
+                  </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Send</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
     <div class="divider"></div>
 
     <footer class="footer">
@@ -213,11 +279,11 @@
         </div>
       </div>
     </footer>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/modal.js"></script>
     <script src="js/posts.js"></script>
   </body>
 </html>
