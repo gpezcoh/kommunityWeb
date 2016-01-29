@@ -50,6 +50,7 @@
 .addInfo{
   font-size: 1.5em;
   color: white;
+  cursor: pointer;
 }
 
 .headlineContainer{
