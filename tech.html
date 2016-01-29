@@ -66,8 +66,8 @@
           </a>
         </div>
       </div>
-       <div class="container-fluid infoContainer">
-        <ul class="info">
+       <div id="newContainer" class="container-fluid infoContainer">
+        <ul id="newInfo" class="info">
           <ul>
             <div class="new">&#10004;</div>
             <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>Technology in 2015</a> 
@@ -87,8 +87,8 @@
             &#x271a;
           </a>      </div>
       </div>
-      <div class="container-fluid infoContainer">
-        <ul class="info">
+      <div id="eventContainer" class="container-fluid infoContainer">
+        <ul id="eventInfo" class="info">
           <ul>
             <div class="new">&#10004;</div>
             <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
@@ -116,8 +116,8 @@
           </a>      
         </div>
       </div>
-      <div class="container-fluid infoContainer">
-        <ul class="info">
+      <div id="jobContainer" class="container-fluid infoContainer">
+        <ul id="jobInfo" class="info">
          <ul>
             <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
             <p class="col-md-6"> Due 01/13</p>
@@ -136,36 +136,36 @@
               <h4 class="modal-title">Add</h4>
             </div>
             <div class="modal-body">
-               <form>
+               <form id="newPostForm">
                   <div class="form-group">
-                    <label id="label1" for="first" class="control-label">Date</label>
+                    <label id="label1" for="first" class="control-label"></label>
                     <input type="text" class="form-control" id="first">
                   </div>
                   <div class="form-group">
-                    <label id="label2" for="second" class="control-label">Location</label>
+                    <label id="label2" for="second" class="control-label"></label>
                     <input type="text" class="form-control" id="second">
                   </div>
                   <div class="form-group">
-                    <label id="label3" for="third" class="control-label">Summary</label>
+                    <label id="label3" for="third" class="control-label"></label>
                     <input type="text" class="form-control" id="third">
                   </div>
                   <div class="form-group">
-                    <label id="label4" for="fourth" class="control-label">Description</label>
+                    <label id="label4" for="fourth" class="control-label"></label>
                     <textarea class="form-control" id="fourth"></textarea>
                   </div>
                    <div class="form-group">
-                    <label id="label5" for="fifth" class="control-label">Type</label>
+                    <label id="label5" for="fifth" class="control-label"></label>
                     <input type="text" class="form-control" id="fifth">
                   </div>
                   <div class="form-group">
-                    <label id="label6" for="sixth" class="control-label">Link</label>
+                    <label id="label6" for="sixth" class="control-label"></label>
                     <input type="text" class="form-control" id="sixth">
                   </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+              <button type="button" id="submit" data-dismiss="modal" class="btn btn-primary">Submit</button>
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
