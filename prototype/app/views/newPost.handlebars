@@ -1,0 +1,20 @@
+
+  <p>Group is {{groupName }}</p>
+  <p>groupId is {{groupId }}</p>
+<p>User is {{user }}</p>
+
+
+<p>Create new {{name }}</p>
+  	<form action="/posts/new/value" method="POST">
+    <input name="user" value="{{user}}" hidden>
+  	<input name="groupName" value="{{groupName}}" hidden>
+    <input name="groupId" value="{{groupId}}" hidden>
+  	<input name="postName" value="{{name}}" hidden>
+  	{{#each categoryNames}}
+  			<p>{{this}}</p>
+<!--   			<input name="postCat" value="{{this}}" hidden>  			
+ -->	  		<input name="textBody"></input>
+  	{{/each}}
+  </br>
+  	<button type="submit">Create</button>
+  	</form>  	

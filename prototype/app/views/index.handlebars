@@ -1,0 +1,10 @@
+{{> welcome}}
+
+  <h1>{{title }}</h1>
+  <p>Welcome to {{title }}</p>
+
+  {{#each groups}}
+  	<a href="/groups/{{../userId}}/{{_id}}">{{name}}</a>
+  {{/each}}
+
+   <a href="/groups/new">Create Group</a>
