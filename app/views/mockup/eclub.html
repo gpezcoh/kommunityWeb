@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Kommunity</title>
+
+    <!-- Bootstrap -->
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Kommunity</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+    <!--         <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+            <li><a href="index.html">New! <span class="badge">7</span></a></li>
+            <li><a href="consulting.html">Consulting<span class="badge">2</span></a></li>
+            <li><a href="soccer.html">Soccer<span class="badge">1</span></a></li>
+            <li><a href="tech.html">Tech <span class="badge">2</span></a></li>
+            <li><a href="eclub.html">E-club</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#joinGroups">Join Group &#x271a;</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Settings</a></li>
+    <!--             <li role="separator" class="divider"></li>
+     -->      </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="divider"></div>
+  <div class="container theme-showcase">
+    <div class="container-fluid">
+      <div class="adminImage">
+        <img id="newImage" src="images/eclub.jpg" alt=""  />
+      </div>
+    </div>
+
+      <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">News</div>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+       <div class="container-fluid infoContainer">
+        <ul class="info">
+          <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='col-md-4'>What's happening in club</a> 
+            <p class="summary col-md-8"> Tyler PD hosts retirement ceremony for two longtime officers </p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+     <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">Events</div>
+        </div>
+        <div class="col-md-1">
+      </div>
+      </div>
+      <div class="container-fluid infoContainer">
+        <ul class="info">
+          <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Club Night</a> 
+            <p class="col-md-6"> 11/12 @ 2:00pm</p>
+            <p class="description col-md-12"> Food will be served
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+          <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Northwestern Soccer Bootcamp</a> 
+            <p class="col-md-6"> 12/05 @ 5:00pm</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+      <div class="container-fluid headlineContainer">
+        <div class="col-md-11">
+          <div class="headline">Job Opportunities</div>
+        </div>
+        <div class="col-md-1">  
+        </div>
+      </div>
+      <div class="container-fluid infoContainer">
+        <ul class="info">
+         <ul>
+            <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Cisco Systems - Business Strategy Intern</a> 
+            <p class="col-md-6"> Due 01/13</p>
+            <p class="description col-md-12"> description description description description description description description description description description description description description description 
+              <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+            </p>
+          </ul>
+        </ul>
+      </div>
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Add</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <label id="label1" for="first" class="control-label">Date</label>
+                    <input type="text" class="form-control" id="first">
+                  </div>
+                  <div class="form-group">
+                    <label id="label2" for="second" class="control-label">Location</label>
+                    <input type="text" class="form-control" id="second">
+                  </div>
+                  <div class="form-group">
+                    <label id="label3" for="third" class="control-label">Summary</label>
+                    <input type="text" class="form-control" id="third">
+                  </div>
+                  <div class="form-group">
+                    <label id="label4" for="fourth" class="control-label">Description</label>
+                    <textarea class="form-control" id="fourth"></textarea>
+                  </div>
+                   <div class="form-group">
+                    <label id="label5" for="fifth" class="control-label">Type</label>
+                    <input type="text" class="form-control" id="fifth">
+                  </div>
+                  <div class="form-group">
+                    <label id="label6" for="sixth" class="control-label">Link</label>
+                    <input type="text" class="form-control" id="sixth">
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+      <div class="modal fade" id="joinGroups" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Join Groups</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                      <p style="padding-left: 10px; padding-top: 5px;">Investment Club</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                      <p style="padding-left: 10px; padding-top: 5px;">Basketball Club</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                       <p style="padding-left: 10px; padding-top: 5px;">Design For America</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                       <p style="padding-left: 10px; padding-top: 5px;">Kellogg Career Department</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                       <p style="padding-left: 10px; padding-top: 5px;">Kellogg Student Government</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" aria-label="...">
+                      </span>
+                       <p style="padding-left: 10px; padding-top: 5px;">Frisbee Club</p>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+      <div class="modal fade" id="sendMail" tabindex="-1" role="dialog" aria-labelledby="sendMailLabel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Send Newsletter</h4>
+            </div>
+            <div class="modal-body">
+               <form>
+                  <div class="form-group">
+                    <label id="label1" for="first" class="control-label">To: </label>
+                    <input type="text" class="form-control" id="first" placeholder="All Club Members">
+                  </div>
+                  <div class="form-group">
+                    <label id="label2" for="second" class="control-label">CC: </label>
+                    <input type="text" class="form-control" id="second" placeholder="All Presidents">
+                  </div>
+                  <div class="form-group">
+                    <label id="label3" for="third" class="control-label">Subject</label>
+                    <input type="text" class="form-control" id="third">
+                  </div>
+                  <div class="form-group">
+                    <label id="label4" for="fourth" class="control-label">Letter Layout</label>
+                    <img id="newImage" src="images/Newsletter.png" alt="" width="300" />
+                  </div>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Send</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div class="divider"></div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class='col-md-6'>
+          <p  id = "footerText">Kommunity</p>
+        </div> 
+        <div class='col-md-6'>
+          <p  id = "footerText" style="text-align: right;">Email us at : kommunity@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/posts.js"></script>
+  </body>
+</html>
