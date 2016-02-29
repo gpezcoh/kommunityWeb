@@ -1,14 +1,76 @@
-<<<<<<< HEAD:prototype/app/views/index.handlebars
-{{> welcome}}
-=======
-{{> header}}
->>>>>>> 3a0e8be248237a75a3d427373c41f5f634e6fd11:app/views/index.handlebars
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Club
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Club</li>
+          </ol>
+        </section>
 
-  <h1>{{title }}</h1>
-  <p>Welcome to {{title }}</p>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-12 connectedSortable">
+              <!-- Custom tabs (Charts with tabs)-->
 
-  {{#each groups}}
-  	<a href="/groups/{{../userId}}/{{_id}}">{{name}}</a>
-  {{/each}}
+              {{#each categoryNames}}
+              	<div class="box box-primary">
+	                <div class="box-header">
+	                  <i class="ion ion-clipboard"></i>
+	                  <h3 class="box-title">{{this}}</h3>
+	                </div><!-- /.box-header -->
+	                <div class="box-body">
+	                  <ul class="todo-list">
+	                    <li>
+	                      <!-- drag handle -->
+	                      <span class="handle">
+	                        <i class="fa fa-ellipsis-v"></i>
+	                        <i class="fa fa-ellipsis-v"></i>
+	                      </span>
+	                      <!-- checkbox -->
+	                      <input type="checkbox" value="" name="">
+	                      <!-- todo text -->
+	                      <span class="text">Soccer Match</span>
+	                      <!-- Emphasis label -->
+	                      <small class="text-muted"><i class="fa fa-clock-o"></i> 02/23/2016 15:15</small>
+	                      <small class="label label-warning"><i class="fa fa-clock-o"></i> VP 3</small>
+	                      <!-- General tools such as edit or delete-->
+	                      <div class="tools pull-right">
+	                        <i class="fa fa-edit">Edit</i>
+	                        <i class="fa fa-trash-o">Deny</i>
+	                      </div>
+	                       <li>
+	                      <!-- drag handle -->
+	                      <span class="handle">
+	                        <i class="fa fa-ellipsis-v"></i>
+	                        <i class="fa fa-ellipsis-v"></i>
+	                      </span>
+	                      <!-- checkbox -->
+	                      <input type="checkbox" value="" name="">
+	                      <!-- todo text -->
+	                      <span class="text">Football match</span>
+	                      <!-- Emphasis label -->
+	                      <small class="text-muted"><i class="fa fa-clock-o"></i> 02/23/2016 15:15</small>
+	                      <small class="label label-info"><i class="fa fa-clock-o"></i> VP 1</small>
+	                      <!-- General tools such as edit or delete-->
+	                      <div class="tools pull-right">
+	                        <i class="fa fa-edit">Edit</i>
+	                        <i class="fa fa-trash-o">Delete</i>
+	                      </div>
+	                    </li>
+	                    </li>
+	                  </ul>
+                	</div><!-- /.box-body -->
+              	</div><!-- /.box -->
+              	{{/each}}
 
-   <a href="/groups/new">Create Group</a>
+            </section><!-- right col -->
+          </div><!-- /.row (main row) -->
+
+        </section><!-- /.content -->

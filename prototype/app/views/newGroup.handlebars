@@ -1,37 +1,69 @@
-<!-- <form method="POST" action="/groups/new">
-	<p> Name <input type="text" name="name"> </p>
-	<ul>
-		<ul> Post Name 1 <input type="text" name="postName1">
-			<ul> Post Category <input type="text" name="postCategory11"></ul>
-			<ul> Post Category <input type="text" name="postCategory12"></ul>
-			<ul> Post Category <input type="text" name="postCategory13"></ul>
-		</ul>
-		<ul> Post Name 2<input type="text" name="postName2"> 
-			<ul> Post Category <input type="text" name="postCategory21"></ul>
-			<ul> Post Category <input type="text" name="postCategory22"></ul>
-			<ul> Post Category <input type="text" name="postCategory23"></ul>
-		</ul>
-		<ul> Post Name 3<input type="text" name="postName3">
-			<ul> Post Category <input type="text" name="postCategory31"></ul>
-			<ul> Post Category <input type="text" name="postCategory32"></ul>
-			<ul> Post Category <input type="text" name="postCategory33"></ul>
-		</ul>
-	<ul>
-	<button type="submit">Create</button>
-</form> -->
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Club
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Club</li>
+          </ol>
+        </section>
 
-<form method="POST" action="/groups/new">
-	<p> Name <input type="text" name="name"> </p>
-	<ul>
-		<ul> 
-			Announcements <input type="checkbox" name="announcements">
-		</ul>
-		<ul> 
-			Jobs <input type="checkbox" name="jobs">
-		</ul>
-		<ul> 
-			Events <input type="checkbox" name="events">
-		</ul>
-	<ul>
-	<button type="submit">Create</button>
-</form>
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <!-- Main row -->
+          <div class="row">
+            <div class="col-md-10">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Create New Group</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form method="POST" action="/groups/new">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">Name </label>
+						<div class="col-sm-10">
+                        	<input type="text" class="form-control"  name="name" maxlength="25">
+                      	</div>
+						
+					</div>
+
+					<div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="announcements"> Announcements
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="Jobs"> Jobs
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" name="events"> Events
+                          </label>
+                        </div>
+                      </div>
+
+					<div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  	</div>
+				</form>
+              </div><!-- /.box -->
+            </div>
+         </section>

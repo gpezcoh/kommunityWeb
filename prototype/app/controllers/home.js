@@ -23,8 +23,9 @@ router.get('/', function (req, res, next) {
         user = newUser;
     }
     res.render('index', {
-      title: user.name,
+      userName: user.name,
       userId: user.id,
+      user: user.id,
       groups: user.groups
     });
   });
@@ -90,6 +91,7 @@ router.post('/posts/new' , function (req,res,next){
                 user: user.id,
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
+                groups: user.groups,
                 name: "Job",
                 categoryNames: cats
             });        
@@ -100,6 +102,7 @@ router.post('/posts/new' , function (req,res,next){
                 user: user.id,
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
+                groups: user.groups,
                 name: "Event",
                 categoryNames: cats
             });
@@ -110,6 +113,7 @@ router.post('/posts/new' , function (req,res,next){
                 user: user.id,
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
+                groups: user.groups,
                 name: "Announcement",
                 categoryNames: cats
             });
@@ -159,14 +163,15 @@ router.get('/posts/view', function(req,res){
          console.log(req.query.postType)
          var retPosts = [];
          for(var j = 0; j < user.groups[i].posts.length; ++j){
-          if(user.groups[i].posts[j].name === req.query.postType){
+          //if(user.groups[i].posts[j].name === req.query.postType){
             retPosts.push(user.groups[i].posts[j]);
-          }
+          //}
          }
         res.render('group', {
           user: user.id,
           title: user.groups[i].name,
           groupId: user.groups[i].id,
+          groups: user.groups,
           posts: retPosts,
           postStructures: user.groups[i].postStructures
         });
@@ -183,9 +188,11 @@ router.get('/groups/:userId/:id', function (req,res){
         if(user.groups[i].id === req.params.id){
         res.render('group', {
           user: user.id,
-          title: user.groups[i].name,
+          userName: user.name,
+          groupName: user.groups[i].name,
           groupId: user.groups[i].id,
-          postStructures: user.groups[i].postStructures
+          postStructures: user.groups[i].postStructures,
+          groups: user.groups
         });
         break;
       }
