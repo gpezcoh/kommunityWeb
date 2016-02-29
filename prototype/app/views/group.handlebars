@@ -1,30 +1,93 @@
-  <h1>{{title }}</h1>
-  <p>Welcome to {{title }}</p>
-  <a href="/">Home</a>
-  {{#each postStructures}}
-  	<p>{{this }}</p>
-  	<form action="/posts/new" method="POST">
-      <input name="user" value="{{../user}}" hidden>
-      <input name="groupId" value="{{../groupId}}" hidden>
-  		<input name="postType" value="{{this}}" hidden>
-  		<button type="submit">Create new {{this}}</button>
-  	</form>
-  	<form action="/posts/view" method="GET">
-      <input name="user" value="{{../user}}" hidden>
-  		<input name="groupId" value="{{../groupId}}" hidden>
-    	<input name="postType" value="{{this}}" hidden>
-  		<button type="submit">View {{this}}s</button>
-  	</form>
-    
-  {{/each}}
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            {{title }}
+            <small>Control panel</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Club</a></li>
+            <li class="active">{{title }}</li>
+          </ol>
+        </section>
 
-{{#each posts}}
-	</br>
-	<p> @@@@{{this.name}}</p>
-	{{#each categoryValues}}
-    {{#with (lookup ../categoryNames @index)}}
-      <p>{{this}}</p>
-      <p> {{../this}}</p>
-    {{/with}}
-	{{/each}}
-{{/each}}
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <!-- Main row -->
+          <div class="row">
+            <div class="col-md-12">  
+      {{#each postStructures}}
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <div class="col-md-11">
+                    <h3 class="box-title">{{this }}</h3>
+                  </div>
+                  <div class="col-md-1">
+                    <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="{{this }}">
+                      &#x271a;
+                    </a>      
+                  </div>
+                </div><!-- /.box-header -->
+
+      <!--
+            
+            	<p>{{this }}</p>
+            	<form action="/posts/new" method="POST">
+                <input name="user" value="{{../user}}" hidden>
+                <input name="groupId" value="{{../groupId}}" hidden>
+            		<input name="postType" value="{{this}}" hidden>
+            		<button type="submit">Create new {{this}}</button>
+            	</form>
+            	<form action="/posts/view" method="GET">
+                <input name="user" value="{{../user}}" hidden>
+            		<input name="groupId" value="{{../groupId}}" hidden>
+              	<input name="postType" value="{{this}}" hidden>
+            		<button type="submit">View {{this}}s</button>
+            	</form>
+              
+
+               <div class="container-fluid headlineContainer">
+                  <div class="col-md-11">
+                    <div class="headline">{{this }}</div>
+                  </div>
+                  <div class="col-md-1">
+                    <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="{{this }}">
+                      &#x271a;
+                    </a>      
+                  </div>
+                </div>
+        -->
+                <div id="eventContainer" class="container-fluid infoContainer">
+                  <ul id="eventInfo" class="info">
+                    <ul>
+                      <div class="new">&#10004;</div>
+                      <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
+                      <p class="col-md-6"> 11/12 @ 2:00pm</p>
+                      <p class="description col-md-12"> description description description description description description description description description description description description description description 
+                        <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+                      </p>
+                    </ul>
+                    <ul>
+                      <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Digital Marketing Bootcamp</a> 
+                      <p class="col-md-6"> 12/05 @ 5:00pm</p>
+                      <p class="description col-md-12"> description description description description description description description description description description description description description description 
+                        <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
+                      </p>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+            
+            {{/each}}
+          </div>
+                      {{#each posts}}
+            </br>
+            <p> {{this.name}}</p>
+            {{#each categoryValues}}
+              {{#with (lookup ../categoryNames @index)}}
+                <p>{{this}}</p>
+                <p> {{../this}}</p>
+              {{/with}}
+            {{/each}}
+          {{/each}}
+            </section>
