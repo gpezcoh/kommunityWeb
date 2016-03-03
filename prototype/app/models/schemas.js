@@ -8,6 +8,11 @@ var PostSchema = new Schema({
   categoryValues: [String],
 });
 
+PostSchema.virtual('date')
+  .get(function(){
+    return this._id.getTimestamp();
+  });
+
 mongoose.model('Post', PostSchema);
 
 
@@ -15,6 +20,7 @@ var GroupSchema = new Schema({
   name: String,
   postStructures : [String],
   posts: [PostSchema],
+  newPosts: [PostSchema],
   selected: String
 });
 

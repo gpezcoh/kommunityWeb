@@ -51,7 +51,6 @@ router.post('/posts/new/value' , function(req,res,next){
                   categoryNames: cats,
                   categoryValues: req.body.textBody
                 });
-                user.groups[i].posts.push(newPost)
               }
               else if(req.body.postName === "Event"){
                 console.log("ayyy")
@@ -61,7 +60,6 @@ router.post('/posts/new/value' , function(req,res,next){
                   categoryNames: cats,
                   categoryValues: req.body.textBody
                 });
-                user.groups[i].posts.push(newPost)
               }
               else if(req.body.postName === "Job"){
                 var cats = ["Company", "Role", "Location", "Description", "Date"];
@@ -70,8 +68,9 @@ router.post('/posts/new/value' , function(req,res,next){
                   categoryNames: cats,
                   categoryValues: req.body.textBody
                 });
-                user.groups[i].posts.push(newPost)
               }
+              user.groups[i].posts.push(newPost)
+              user.groups[i].newPosts.push(newPost)
               user.save(function (err,group) {
                   if (err) return console.error(err);
                });
@@ -186,16 +185,35 @@ router.get('/groups/:userId/:id', function (req,res){
     User.findOne({_id: req.params.userId},function (err,user){
       for(var i = 0; i < user.groups.length; ++i){
         if(user.groups[i].id === req.params.id){
-        res.render('group', {
-          user: user.id,
-          userName: user.name,
-          groupName: user.groups[i].name,
-          groupId: user.groups[i].id,
-          postStructures: user.groups[i].postStructures,
-          groups: user.groups
-        });
+          if(user.groups[i].newPosts.length !== 0){
+            checkNew(user.groups[i]);
+          }
+          res.render('group', {
+            user: user.id,
+            userName: user.name,
+            groupName: user.groups[i].name,
+            groupId: user.groups[i].id,
+            postStructures: user.groups[i].postStructures,
+            groups: user.groups
+          });
         break;
       }
     }
   });
 });
+
+function checkNew(group){
+  var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+  var firstDate = new Date();
+  var secondDate = group.newPosts[0].date;
+  // var secondDate = group.posts[0].date;
+  var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+
+  if(diffDays >= 7){
+    group.newPosts.shift();
+    group.save(function (err,group) {
+        if (err) return console.error(err);
+    });
+    checkNew(group);
+  }
+}
