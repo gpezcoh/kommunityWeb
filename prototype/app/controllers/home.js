@@ -154,30 +154,41 @@ router.post('/groups/new' , function(req,res,next){
 });
 
 router.get('/posts/view', function(req,res){
-  console.log("ayy")
   User.findOne({_id: req.query.user}, function (err,user){
-    for(var i = 0; i < user.groups.length; ++i){
-      if(user.groups[i].id === req.query.groupId){
-         console.log(user.groups[i])
-         console.log(req.query.postType)
-         var retPosts = [];
-         for(var j = 0; j < user.groups[i].posts.length; ++j){
-          //if(user.groups[i].posts[j].name === req.query.postType){
-            retPosts.push(user.groups[i].posts[j]);
-          //}
-         }
-        res.render('group', {
-          user: user.id,
-          title: user.groups[i].name,
-          groupId: user.groups[i].id,
-          groups: user.groups,
-          posts: retPosts,
-          postStructures: user.groups[i].postStructures
-        });
-        break;
+      for(var i = 0; i < user.groups.length; ++i){
+        if(user.groups[i].id === req.query.groupId){
+            if(req.query.postType === "New"){
+             res.render('group', {
+                        user: user.id,
+                        title: user.groups[i].name,
+                        groupId: user.groups[i].id,
+                        groups: user.groups,
+                        newPosts: user.groups[i].newPosts,
+                        isNew: true,
+                        postStructures: user.groups[i].postStructures
+                      });
+            }
+            else{
+               var retPosts = [];
+               for(var j = 0; j < user.groups[i].posts.length; ++j){
+                //if(user.groups[i].posts[j].name === req.query.postType){
+                  retPosts.push(user.groups[i].posts[j]);
+                //}
+               }
+              res.render('group', {
+                user: user.id,
+                title: user.groups[i].name,
+                groupId: user.groups[i].id,
+                groups: user.groups,
+                isNew: false,
+                posts: retPosts,
+                postStructures: user.groups[i].postStructures
+              });
+              break;
+            }
+        }
       }
-    }
-  }); 
+    }); 
 });
 
 router.get('/groups/:userId/:id', function (req,res){
@@ -190,6 +201,8 @@ router.get('/groups/:userId/:id', function (req,res){
           }
           res.render('group', {
             user: user.id,
+            newPosts: user.groups[i].newPosts,
+            isNew: true,
             userName: user.name,
             groupName: user.groups[i].name,
             groupId: user.groups[i].id,

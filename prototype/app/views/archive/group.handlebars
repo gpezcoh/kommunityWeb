@@ -17,7 +17,17 @@
   	</form>
 
   {{/each}}
-
+{{#if new}}
+  {{#each newPosts}}
+    </br>
+    <p> {{this.name}}</p>
+    {{#each categoryValues}}
+      {{#with (lookup ../categoryNames @index)}}
+        <p>{{this}}</p>
+        <p> {{../this}}</p>
+      {{/with}}
+    {{/each}}
+  {{/if}}
 {{#each posts}}
 	</br>
 	<p> {{this.name}}</p>
