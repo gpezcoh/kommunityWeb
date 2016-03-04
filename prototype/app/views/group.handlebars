@@ -25,7 +25,17 @@
                   </li>
                   {{/each}}
                   {{#unless isNew}}
-                  <li class="pull-right"><a href="/posts/new?user={{user}}&#38;groupId={{groupId}}&#38;postType={{postType}}" class="text-muted"><span class="glyphicon glyphicon-plus"></span></a></li>
+                  <li class="dropdown pull-right">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <span class="glyphicon glyphicon-plus"></span><span class="caret"></span>
+                  <ul class="dropdown-menu">
+                    {{#each postStructures}}
+                    <li role="presentation">
+                      <a role="menuitem" tabindex="-1" href="/posts/new?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}</a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                  </li>
                   {{/unless}}
                 </ul>
                 <div class="box box-primary">

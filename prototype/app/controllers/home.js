@@ -122,6 +122,49 @@ router.post('/posts/new' , function (req,res,next){
   });
 });
 
+
+router.get('/posts/new' , function (req,res,next){
+  User.findOne({_id: req.query.user}, function (err,user){
+    for(var i = 0; i < user.groups.length; ++i){
+      if(user.groups[i].id === req.query.groupId){       
+        if(req.query.postType === "Job"){
+          var cats = ["Company", "Role", "Location", "Description", "Date"];
+           res.render('newPost', {
+                user: user.id,
+                groupName: user.groups[i].name,
+                groupId: user.groups[i].id,
+                groups: user.groups,
+                name: "Job",
+                categoryNames: cats
+            });        
+         }
+        else if(req.query.postType === "Event"){
+          var cats = ["Title", "Description", "Date", "Location"];
+           res.render('newPost', {
+                user: user.id,
+                groupName: user.groups[i].name,
+                groupId: user.groups[i].id,
+                groups: user.groups,
+                name: "Event",
+                categoryNames: cats
+            });
+        }
+        else if(req.query.postType === "Announcement"){
+          var cats = ["Title", "Description"];
+           res.render('newPost', {
+                user: user.id,
+                groupName: user.groups[i].name,
+                groupId: user.groups[i].id,
+                groups: user.groups,
+                name: "Announcement",
+                categoryNames: cats
+            });
+        }
+      }
+    }
+  });
+});
+
 router.post('/groups/new' , function(req,res,next){
     var posts = [];
     if(req.body.events){
