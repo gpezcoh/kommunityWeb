@@ -203,7 +203,7 @@ router.get('/posts/view', function(req,res){
             if(req.query.postType === "New"){
              res.render('group', {
                         user: user.id,
-                        title: user.groups[i].name,
+                        groupName: user.groups[i].name,
                         groupId: user.groups[i].id,
                         groups: user.groups,
                         newPosts: user.groups[i].newPosts,
@@ -221,7 +221,7 @@ router.get('/posts/view', function(req,res){
                }
               res.render('group', {
                 user: user.id,
-                title: user.groups[i].name,
+                groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
                 groups: user.groups,
                 isNew: false,
