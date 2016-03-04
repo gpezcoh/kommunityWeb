@@ -10,90 +10,55 @@
           </ol>
         </section>
 
+
         <!-- Main content -->
         <section class="content">
-          <!-- Small boxes (Stat box) -->
-          <!-- Main row -->
-          <div class="row">
-              <section class="col-lg-12 connectedSortable ui-sortable">
-              {{#each postStructures}}
-                <div class="box box-primary box-info">
-                  <div class="box-header with-border ui-sortable-handle"  style="cursor: move;">
-                    <div class="col-md-11">
-                      <h3 class="box-title">{{this }}</h3>
-                    </div>
-                    <div class="col-md-1">
-                      <form action="/posts/new" method="POST">
-                        <input name="user" value="{{../user}}" hidden>
-                        <input name="groupId" value="{{../groupId}}" hidden>
-                        <input name="postType" value="{{this}}" hidden>
-                        <button type="submit" class="addInfo">&#x271a;</button>
-                   <!--
-                        <a class="addInfo" data-toggle="modal" data-target="#myModal" href="{{this }}">
-                          &#x271a;-->
-                        </a>
-                      </form>
-                    </div>
-                  </div><!-- /.box-header -->
-
-      <!--
-            
-            	<p>{{this }}</p>
-            	<form action="/posts/new" method="POST">
-                <input name="user" value="{{../user}}" hidden>
-                <input name="groupId" value="{{../groupId}}" hidden>
-            		<input name="postType" value="{{this}}" hidden>
-            		<button type="submit">Create new {{this}}</button>
-            	</form>
-            	<form action="/posts/view" method="GET">
-                <input name="user" value="{{../user}}" hidden>
-            		<input name="groupId" value="{{../groupId}}" hidden>
-              	<input name="postType" value="{{this}}" hidden>
-            		<button type="submit">View {{this}}s</button>
-            	</form>
-              
-
-               <div class="container-fluid headlineContainer">
-                  <div class="col-md-11">
-                    <div class="headline">{{this }}</div>
-                  </div>
-                  <div class="col-md-1">
-                    <a class="addInfo" data-toggle="modal" data-target="#myModal" data-type="{{this }}">
-                      &#x271a;
-                    </a>      
-                  </div>
-                </div>
-        -->
-                <div id="eventContainer" class="container-fluid infoContainer">
-                  <ul id="eventInfo" class="info">
-                    <ul>
-                      <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>KMC Brand Strategy Workshop</a> 
-                      <p class="col-md-6"> 11/12 @ 2:00pm</p>
-                      <p class="description col-md-12"> description description description description description description description description description description description description description description 
-                        <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-                      </p>
-                    </ul>
-                    <ul>
-                      <a href="javascript:void(0)" onClick="openPost(this)" class='summary col-md-6'>Digital Marketing Bootcamp</a> 
-                      <p class="col-md-6"> 12/05 @ 5:00pm</p>
-                      <p class="description col-md-12"> description description description description description description description description description description description description description description 
-                        <a href="javascript:void(0)" onClick="closePost(this)"> &#8679;</a>
-                      </p>
-                    </ul>
+        <div class="row">
+            <div class="col-md-12">
+              <!-- Custom Tabs -->
+              <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                  <li{{#if isNew}} class="active"{{/if}}><a href="/posts/view?user={{user}}&#38;groupId={{groupId}}&#38;postType=New">New</a></li>
+                  {{#each postStructures}}
+                  <li>
+                    <a href="/posts/view?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}</a>
+                  </li>
+                  {{/each}}
+                  {{#unless isNew}}
+                  <li class="pull-right"><a href="/posts/new?user={{user}}&#38;groupId={{groupId}}&#38;postType={{postType}}" class="text-muted"><span class="glyphicon glyphicon-plus"></span></a></li>
+                  {{/unless}}
+                </ul>
+                <div class="box box-primary">
+                  {{#each posts}}
+                  <ul class="box-body col-md-12 info">                      
+                        {{#each categoryValues}}
+                          {{#with (lookup ../categoryNames @index)}}
+                            <div class="{{this}}"> {{../this}}</div>
+                          {{/with}}
+                        {{/each}}
                   </ul>
-                </div>
-              </div>
-            
-            {{/each}}
-          </secion>
-                      {{#each posts}}
-            </br>
-            <p> {{this.name}}</p>
-            {{#each categoryValues}}
-              {{#with (lookup ../categoryNames @index)}}
-                <p>{{this}}</p>
-                <p> {{../this}}</p>
-              {{/with}}
-            {{/each}}
-          {{/each}}
-            </section>
+                  {{/each}}
+
+                  {{#if isNew}}
+                    {{#each newposts}}
+                    <ul class="box-body col-md-12 info">
+                        
+                          {{#each categoryValues}}
+                            {{#with (lookup ../categoryNames @index)}}
+                              <div class="{{this}}"> {{../this}}</div>
+                            {{/with}}
+                          {{/each}}
+
+                    </ul>
+                    {{/each}}
+                    {{/if}}
+                  <!-- /.tab-pane -->
+
+
+
+                  
+                </div><!-- /.tab-content -->
+              </div><!-- nav-tabs-custom -->
+            </div><!-- /.col -->
+
+        </secion>

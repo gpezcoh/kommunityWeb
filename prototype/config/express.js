@@ -8,6 +8,9 @@ var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var exphbs  = require('express-handlebars');
+var equalhelper = require("handlebars-helper-equal");
+
+//exphbs.registerHelper("equal", require("handlebars-helper-equal"))
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -17,6 +20,7 @@ module.exports = function(app, config) {
   app.engine('handlebars', exphbs({
     layoutsDir: config.root + '/app/views/layouts/',
     defaultLayout: 'main',
+    helpers: equalhelper,
     partialsDir: [config.root + '/app/views/partials/']
   }));
   app.set('views', config.root + '/app/views');

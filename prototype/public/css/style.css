@@ -1,0 +1,46 @@
+.Title{
+	width: 40%;
+	position: relative;
+	color: #428bca;
+	float: left;
+}
+.Company{
+	width: 40%;
+	position: relative;
+	color: #428bca;
+	float: left;
+}
+.Description{
+	width: 100%;
+	float: left;
+}
+.Date{
+	width: 20%;
+	float: left;
+}
+.Date:before{
+	font-family: 'FontAwesome';
+  	content: "\f017";
+}
+.Location{
+	width: 40%;
+	float: left;
+}
+.Location:before {
+  	font-family: 'FontAwesome';
+  	content: "\f041";
+}
+
+.info{
+	background-color: #ffffff;
+	float: left;
+}
+
+.Role{
+	width: 20%;
+	float: left;
+}
+.Role:before{
+  	font-family: 'FontAwesome';
+  	content: "\f007";
+}

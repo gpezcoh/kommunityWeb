@@ -165,15 +165,16 @@ router.get('/posts/view', function(req,res){
                         groups: user.groups,
                         newPosts: user.groups[i].newPosts,
                         isNew: true,
+                        postType: req.query.postType,
                         postStructures: user.groups[i].postStructures
                       });
             }
             else{
                var retPosts = [];
                for(var j = 0; j < user.groups[i].posts.length; ++j){
-                //if(user.groups[i].posts[j].name === req.query.postType){
+                if(user.groups[i].posts[j].name === req.query.postType){
                   retPosts.push(user.groups[i].posts[j]);
-                //}
+                }
                }
               res.render('group', {
                 user: user.id,
@@ -182,6 +183,7 @@ router.get('/posts/view', function(req,res){
                 groups: user.groups,
                 isNew: false,
                 posts: retPosts,
+                postType: req.query.postType,
                 postStructures: user.groups[i].postStructures
               });
               break;
