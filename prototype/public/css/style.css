@@ -3,12 +3,21 @@
 	position: relative;
 	color: #428bca;
 	float: left;
+	font-weight: bold;
 }
 .Company{
 	width: 40%;
 	position: relative;
 	color: #428bca;
 	float: left;
+	font-weight: bold;
+}
+.Summary{
+	width: 100%;
+	position: relative;
+	color: #428bca;
+	float: left;
+	font-weight: bold;
 }
 .Description{
 	width: 100%;
