@@ -19,8 +19,8 @@
               <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
                   <li{{#if isNew}} class="active"{{/if}}><a href="/posts/view?user={{user}}&#38;groupId={{groupId}}&#38;postType=New">New</a></li>
-                  {{#each postStructures}}
-                  <li>
+                  {{#each postStructures}}                
+                  <li {{#compare this '==' ../postType }} class="active"{{/compare}}>
                     <a href="/posts/view?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}</a>
                   </li>
                   {{/each}}
