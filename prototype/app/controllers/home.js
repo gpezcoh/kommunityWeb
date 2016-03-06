@@ -93,6 +93,7 @@ router.post('/posts/new' , function (req,res,next){
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
                 groups: user.groups,
+                isGroup: true,
                 name: "Job",
                 categoryNames: cats
             });        
@@ -104,6 +105,7 @@ router.post('/posts/new' , function (req,res,next){
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
                 groups: user.groups,
+                isGroup: true,
                 name: "Event",
                 categoryNames: cats
             });
@@ -115,6 +117,7 @@ router.post('/posts/new' , function (req,res,next){
                 groupName: user.groups[i].name,
                 groupId: user.groups[i].id,
                 groups: user.groups,
+                isGroup: true,
                 name: "Announcement",
                 categoryNames: cats
             });
@@ -201,6 +204,7 @@ router.post('/groups/new' , function(req,res,next){
                 groups: user.groups,
                 newPosts: user.groups[user.groups.length-1].newPosts,
                 isNew: true,
+                isGroup: true,
                 // postType: req.query.postType,
                 postStructures: user.groups[user.groups.length-1].postStructures
               });  });
@@ -218,6 +222,7 @@ router.get('/posts/view', function(req,res){
                         groups: user.groups,
                         newPosts: user.groups[i].newPosts,
                         isNew: true,
+                        isGroup: true,
                         postType: req.query.postType,
                         postStructures: user.groups[i].postStructures
                       });
@@ -235,6 +240,7 @@ router.get('/posts/view', function(req,res){
                 groupId: user.groups[i].id,
                 groups: user.groups,
                 isNew: false,
+                isGroup: true,
                 posts: retPosts,
                 postType: req.query.postType,
                 postStructures: user.groups[i].postStructures
@@ -262,7 +268,8 @@ router.get('/groups/:userId/:id', function (req,res){
             groupName: user.groups[i].name,
             groupId: user.groups[i].id,
             postStructures: user.groups[i].postStructures,
-            groups: user.groups
+            groups: user.groups,
+            isGroup: true
           });
         break;
       }
@@ -286,7 +293,27 @@ function checkNew(group){
   }
 }
 
-router.get('/mail/send', function (req,res){
+router.get('/newsletter/:userId/:id', function (req,res){
+// router.get('/groups/:id', function (req,res){
+    User.findOne({_id: req.params.userId},function (err,user){
+      for(var i = 0; i < user.groups.length; ++i){
+        if(user.groups[i].id === req.params.id){
+          res.render('newsLetter', {
+            user: user.id,
+            userName: user.name,
+            groupName: user.groups[i].name,
+            groupId: user.groups[i].id,
+            postStructures: user.groups[i].postStructures,
+            groups: user.groups,
+            isGroup: true
+          });
+        break;
+      }
+    }
+  });
+});
+
+router.get('/email/send', function (req,res){
   
   /*var smtpConfig = {
       host: 'smtp.gmail.com', // hostname 

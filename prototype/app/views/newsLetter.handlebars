@@ -1,0 +1,75 @@
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            {{groupName }}
+            <small> Newsletter</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">{{groupName }}</li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <!-- Main row -->
+            <div class="col-md-12">
+              <!-- general form elements -->
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Send Newsletter</h3>
+                </div><!-- /.box-header -->
+                <!-- form start -->
+                <form action="/posts/email/send" method="POST">
+                <div class="box-body">
+                  
+                  <input name="user" value="{{user}}" hidden>
+                  <input name="groupName" value="{{groupName}}" hidden>
+                  <input name="groupId" value="{{groupId}}" hidden>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Subject</label>
+                    <div class="col-sm-10 input-group">
+                      <input type="text" class="form-control"  name="textBody"></input>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Recipient</label>
+                    <div class="col-sm-10 input-group">
+                      <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                      <input class="form-control" placeholder="Email" type="email">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Date Range of Posts</label>
+                    <div class="input-group col-sm-10">
+                      <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </div>
+                      <input class="form-control pull-right active" id="reservation" type="text">
+                    </div>
+                    <!--<div class="col-sm-10 input-group">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                      <select class="form-control">
+                        <option>Today</option>
+                        <option>Last 7 Days</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                        <option>option 5</option>
+                      </select>
+                    </div>
+                    -->
+                  </div>
+
+                </div>  <!-- /box-body end-->
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-left">Send</button>
+                </div>
+                </form> 
+              </div><!-- /.box -->
+          </div>
+        </section>
+	
+  

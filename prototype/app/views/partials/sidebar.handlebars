@@ -25,15 +25,15 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="active">
+            <li>
               <a href="/">
-                <i class="fa fa-th"></i> <span>Home</span> <small class="label pull-right bg-red">2</small>
+                <i class="fa fa-th"></i> <span>Home</span> <!--<small class="label pull-right bg-red">2</small>-->
               </a>
             </li>
             <!-- Club List -->
             <li class="header">Club</li>
               {{#each groups}}
-            <li><a href="/groups/{{../user}}/{{_id}}"><i class="fa fa-th"></i> {{name}}</a><small class="label pull-right bg-red"></small></li>
+            <li{{#compare id '==' ../groupId }} class="active"{{/compare}}><a href="/groups/{{../user}}/{{_id}}"><i class="fa fa-th"></i> {{name}}</a><small class="label pull-right bg-red"></small></li>
               {{/each}}
 <!--
             <li class="treeview">
@@ -50,17 +50,19 @@
             <li class="header">Club</li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Subscribe New Club</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Creat New Club</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Delete Club</a></li>-->
+            <li><a href="#"><i class="fa fa-circle-o"></i> Delete Club</a></li>
             <li class="header">Activity</li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Anouncements</a></li>
             <li><a href="#"><i class="fa fa-circle-o"></i> Jobs</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Events</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Events</a></li>-->
+            {{#if isGroup}}
             <li class="header">Newsletter</li>
             <li>
-              <a href="#">
+              <a href="/newsletter/{{user}}/{{groupId}}">
                 <i class="fa fa-th"></i> <span>Send Email</span> <small class="label pull-right bg-green">new</small>
               </a>
             </li>
+            {{/if}}
 
           </ul>
         </section>
