@@ -69,8 +69,8 @@ router.post('/posts/new/value' , function(req,res,next){
                   categoryValues: req.body.textBody
                 });
               }
-              user.groups[i].posts.push(newPost)
-              user.groups[i].newPosts.push(newPost)
+              user.groups[i].posts.unshift(newPost)
+              user.groups[i].newPosts.unshift(newPost)
               user.save(function (err,group) {
                   if (err) return console.error(err);
                });
@@ -192,8 +192,16 @@ router.post('/groups/new' , function(req,res,next){
       user.save(function (err,group) {
         if (err) return console.error(err);
       });
-      res.redirect('..');
-  });
+     res.render('group', {
+                user: user.id,
+                groupName: user.groups[user.groups.length-1].name,
+                groupId: user.groups[user.groups.length-1].id,
+                groups: user.groups,
+                newPosts: user.groups[user.groups.length-1].newPosts,
+                isNew: true,
+                // postType: req.query.postType,
+                postStructures: user.groups[user.groups.length-1].postStructures
+              });  });
 });
 
 router.get('/posts/view', function(req,res){
@@ -263,12 +271,12 @@ router.get('/groups/:userId/:id', function (req,res){
 function checkNew(group){
   var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
   var firstDate = new Date();
-  var secondDate = group.newPosts[0].date;
+  var secondDate = group.newPosts[group.newPosts.length - 1].date;
   // var secondDate = group.posts[0].date;
   var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
 
   if(diffDays >= 7){
-    group.newPosts.shift();
+    group.newPosts.pop();
     group.save(function (err,group) {
         if (err) return console.error(err);
     });

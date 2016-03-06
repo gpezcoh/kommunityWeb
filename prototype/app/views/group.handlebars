@@ -21,7 +21,7 @@
                   <li{{#if isNew}} class="active"{{/if}}><a href="/posts/view?user={{user}}&#38;groupId={{groupId}}&#38;postType=New">New</a></li>
                   {{#each postStructures}}                
                   <li {{#compare this '==' ../postType }} class="active"{{/compare}}>
-                    <a href="/posts/view?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}</a>
+                    <a href="/posts/view?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}s</a>
                   </li>
                   {{/each}}
 
@@ -50,7 +50,7 @@
                   {{/each}}
 
                   {{#if isNew}}
-                    {{#each newposts}}
+                    {{#each newPosts}}
                     <ul class="box-body col-md-12 info">
                         
                           {{#each categoryValues}}
