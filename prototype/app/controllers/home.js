@@ -374,11 +374,14 @@ router.post('/posts/email/send', function (req,res){
     name: 'Kommunity Newsletter'
   }, function(err, html) {
 */
-  newPosts = []
+  var newPosts = []
    User.findOne({_id: req.body.user}, function (err,user){
+    console.log("user found")
     for(var i = 0; i < user.groups.length; ++i){
       if(user.groups[i].id === req.body.groupId){
+            console.log("group found")
           newPosts = sortPosts(user.groups[i]);
+                      console.log(newPosts)
         }
       }
     });
