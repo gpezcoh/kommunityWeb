@@ -28,7 +28,8 @@ router.get('/', function (req, res, next) {
       userName: user.name,
       userId: user.id,
       user: user.id,
-      groups: user.groups
+      groups: user.groups,
+      msg: req.query.msg
     });
   });
 });
@@ -313,117 +314,58 @@ router.get('/newsletter/:userId/:id', function (req,res){
   });
 });
 
-router.get('/email/send', function (req,res){
-  
-  /*var smtpConfig = {
-      host: 'smtp.gmail.com', // hostname 
-      secure: true, // use SSL 
-      port: 465, // port for secure SMTP 
-      transportMethod: 'SMTP', // default is SMTP. Accepts anything that nodemailer accepts 
-      auth: {
-        user: 'long.c.lee@gmail.com',
-        pass: 'L@#c@#l15_05'
+router.post('/posts/email/send', function (req,res){
+  var mg = require('nodemailer-mailgun-transport');
+  var hbs = require('nodemailer-express-handlebars');
+  var options = {
+     viewEngine: {
+         extname: ".handlebars",
+         layoutsDir: 'app/views/email/',
+         defaultLayout : 'newsletter',
+         partialsDir : 'app/views/partials/'
+     },
+     viewPath: 'app/views/email/'
+ };
+
+  // This is your API key that you retrieve from www.mailgun.com/cp (free up to 10K monthly emails)
+  var auth = {
+    auth: {
+      api_key: 'key-a6ceeb68f6dc46f74c70e74495042e48',
+      domain: 'sandbox20f236709d6249009c584c43af758c2a.mailgun.org'
+    }
+  }
+
+  var nodemailerMailgun = nodemailer.createTransport(mg(auth));
+  nodemailerMailgun.use('compile', hbs(options));
+
+  res.render('newsletter', {
+    name: 'Kommunity Newsletter'
+  }, function(err, html) {
+
+    nodemailerMailgun.sendMail({
+      from: 'newsletter@kommunity.com',
+      to: req.body.email, // An array if you have multiple recipients.
+      //cc:'second@domain.com',
+      //bcc:'secretagent@company.gov',
+      subject: req.body.subject,
+      'h:Reply-To': 'newsletter@kommunity.com',
+      //You can use "html:" to send HTML email content. It's magic!
+      html: html
+      //You can use "text:" to send plain-text content. It's oldschool!
+      //text: 'Mailgun rocks, pow pow!'
+    }, function (err, info) {
+      if (err) {
+        console.log('Error: ' + err + '=>' + req.body.email);
+        nodemailerMailgun.close();
+        res.redirect('/?msg=failed to send newsletter');
       }
-  };
-
-  var poolConfig = {
-      pool: true,
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, // use SSL
-      auth: {
-          user: 'long.c.lee@gmail.com',
-          pass: 'L@#c@#l15_05'
+      else {
+        console.log('Response: ' + info + '=>' + req.body.email);
+        nodemailerMailgun.close();
+        res.redirect('/?msg=newsletter sent successfully');
       }
-  };
+    });
 
-  var directConfig = {
-      name: 'kommunity.com' // must be the same that can be reverse resolved by DNS for your IP
-  };
-  */
-  
-  var nodemailer = require('nodemailer');
-
-  // Create a SMTP transporter object
-  var transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-          user: 'long.c.lee@gmail.com',
-          pass: 'L@#c@#l15_05'
-      },
-      logger: true, // log to console
-      debug: true // include SMTP traffic in the logs
-  }, {
-      // default message fields
-
-      // sender info
-      from: 'kommunity <long.c.lee@gmail.com>',
-      headers: {
-          'X-Laziness-level': 1000 // just an example header, no need to use this
-      }
   });
 
-  console.log('SMTP Configured');
-
-  // Message object
-  var message = {
-
-      // Comma separated list of recipients
-      to: '"Long" <chenglongli2015@u.northwestern.edu>',
-
-      // Subject of the message
-      subject: 'Nodemailer is unicode friendly ✔', //
-
-      // plaintext body
-      text: 'Hello to myself!',
-
-      // HTML body
-      html: '<p><b>Hello</b> to myself <img src="cid:note@example.com"/></p>' +
-          '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
-
-      // Apple Watch specific HTML body
-      watchHtml: '<b>Hello</b> to myself',
-
-      // An array of attachments
-      attachments: [
-
-          // String attachment
-          {
-              filename: 'notes.txt',
-              content: 'Some notes about this e-mail',
-              contentType: 'text/plain' // optional, would be detected from the filename
-          },
-
-          // Binary Buffer attachment
-          {
-              filename: 'image.png',
-              content: new Buffer('iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAD/' +
-                  '//+l2Z/dAAAAM0lEQVR4nGP4/5/h/1+G/58ZDrAz3D/McH8yw83NDDeNGe4U' +
-                  'g9C9zwz3gVLMDA/A6P9/AFGGFyjOXZtQAAAAAElFTkSuQmCC', 'base64'),
-
-              cid: 'note@example.com' // should be as unique as possible
-          },
-
-          /*
-          // File Stream attachment
-          {
-              filename: 'nyan cat ✔.gif',
-              path: __dirname + '/assets/nyan.gif',
-              cid: 'long.c.lee@gmail.com' // should be as unique as possible
-          }
-          */
-      ]
-  };
-
-  console.log('Sending Mail');
-  transporter.sendMail(message, function (error, info) {
-      if (error) {
-          console.log('Error occurred');
-          console.log(error.message);
-          res.redirect('..');
-      }
-      console.log('Message sent successfully!');
-      console.log('Server responded with "%s"', info.response);
-      res.redirect('..');
-  });
 });

@@ -31,24 +31,30 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Subject</label>
                     <div class="col-sm-10 input-group">
-                      <input type="text" class="form-control"  name="textBody"></input>
+                      <input type="text" class="form-control"  name="subject" required="required"></input>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Recipient</label>
                     <div class="col-sm-10 input-group">
                       <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                      <input class="form-control" placeholder="Email" type="email">
+                      <input class="form-control" placeholder="Email" type="text" name="email" required="required">
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Date Range of Posts</label>
+                    <label class="col-sm-2 control-label">Date Range of the Posts</label>
                     <div class="input-group col-sm-10">
                       <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                       </div>
-                      <input class="form-control pull-right active" id="reservation" type="text">
+                      <select class="form-control pull-right active">
+                        <option>Today</option>
+                        <option>Last 3 Days</option>
+                        <option>Last 7 Days</option>
+                        <option>This month</option>
+                        <option>Last month</option>
+                      </select>
                     </div>
                     <!--<div class="col-sm-10 input-group">
                       <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
