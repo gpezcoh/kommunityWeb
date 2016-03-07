@@ -48,20 +48,18 @@
                         {{/each}}
                   </ul>
                   {{/each}}
-
-                  {{#if isNew}}
-                    {{#each newPosts}}
-                    <ul class="box-body col-md-12 info">
-                        
-                          {{#each categoryValues}}
-                            {{#with (lookup ../categoryNames @index)}}
-                              <div class="{{this}}"> {{../this}}</div>
-                            {{/with}}
-                          {{/each}}
-
-                    </ul>
+                  {{#each newPosts}}
+                      <p>{{name}}<p>
+                      {{#each posts}}
+                      <ul class="box-body col-md-12 info">
+                            {{#each categoryValues}}
+                              {{#with (lookup ../categoryNames @index)}}
+                                <div class="{{this}}"> {{../this}}</div>
+                              {{/with}}
+                            {{/each}}
+                      </ul>
+                      {{/each}}
                     {{/each}}
-                    {{/if}}
                   <!-- /.tab-pane -->
 
 

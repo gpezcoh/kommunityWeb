@@ -170,6 +170,28 @@ router.get('/posts/new' , function (req,res,next){
   });
 });
 
+function sortPosts(group){
+  var newPosts = []
+  var newerPosts = []
+  for(var i = 0; i < group.postStructures.length; ++i){
+    newPosts.push({"name": group.postStructures[i], "posts": []})
+  }
+  for(var i = 0; i < group.newPosts.length; ++i){
+    for(var j= 0; j < newPosts.length; ++j){
+      if(group.newPosts[i].name === newPosts[j].name){
+        newPosts[j].posts.unshift(group.newPosts[i])
+        break;
+      }
+    }
+  }
+  for(var j= 0; j < newPosts.length; ++j){
+      if(newPosts[j].posts.length !== 0){
+        newerPosts.push(newPosts[j]);
+      }
+    }
+  return newerPosts
+}
+
 router.post('/groups/new' , function(req,res,next){
     var posts = [];
     if(req.body.events){
@@ -189,7 +211,6 @@ router.post('/groups/new' , function(req,res,next){
       // console.log(newGroup.postStructures)
       newGroup.save(function (err,group) {
         if (err) return console.error(err);
-        console.log(group)
     });
     User.findOne({name : "Gabe"}, function (err, user) {
       // user.groups = newGroup;
@@ -197,12 +218,13 @@ router.post('/groups/new' , function(req,res,next){
       user.save(function (err,group) {
         if (err) return console.error(err);
       });
+    var newPosts = sortPosts(user.groups[user.groups.length-1])
      res.render('group', {
                 user: user.id,
                 groupName: user.groups[user.groups.length-1].name,
                 groupId: user.groups[user.groups.length-1].id,
                 groups: user.groups,
-                newPosts: user.groups[user.groups.length-1].newPosts,
+                newPosts: newPosts,
                 isNew: true,
                 isGroup: true,
                 // postType: req.query.postType,
@@ -215,12 +237,13 @@ router.get('/posts/view', function(req,res){
       for(var i = 0; i < user.groups.length; ++i){
         if(user.groups[i].id === req.query.groupId){
             if(req.query.postType === "New"){
+              newPosts = sortPosts(user.groups[i])
              res.render('group', {
                         user: user.id,
                         groupName: user.groups[i].name,
                         groupId: user.groups[i].id,
                         groups: user.groups,
-                        newPosts: user.groups[i].newPosts,
+                        newPosts: newPosts,
                         isNew: true,
                         isGroup: true,
                         postType: req.query.postType,
@@ -258,11 +281,12 @@ router.get('/groups/:userId/:id', function (req,res){
       for(var i = 0; i < user.groups.length; ++i){
         if(user.groups[i].id === req.params.id){
           if(user.groups[i].newPosts.length !== 0){
-            checkNew(user.groups[i]);
+            var newPosts = checkNew(user.groups[i]);
           }
+          var newPosts = sortPosts(user.groups[i])
           res.render('group', {
             user: user.id,
-            newPosts: user.groups[i].newPosts,
+            newPosts: newPosts,
             isNew: true,
             userName: user.name,
             groupName: user.groups[i].name,
