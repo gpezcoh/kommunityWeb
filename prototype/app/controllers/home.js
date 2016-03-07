@@ -352,6 +352,13 @@ router.post('/posts/email/send', function (req,res){
  };
 
   // This is your API key that you retrieve from www.mailgun.com/cp (free up to 10K monthly emails)
+  var sgTransport = require('nodemailer-sendgrid-transport');
+  var send_grid = {
+     auth: {
+         api_user: 'kommunity',
+         api_key: 'kommunity1234'
+     }
+  }
   var auth = {
     auth: {
       api_key: 'key-a6ceeb68f6dc46f74c70e74495042e48',
@@ -359,37 +366,54 @@ router.post('/posts/email/send', function (req,res){
     }
   }
 
-  var nodemailerMailgun = nodemailer.createTransport(mg(auth));
+  //var nodemailerMailgun = nodemailer.createTransport(mg(auth));
+  var nodemailerMailgun = nodemailer.createTransport(sgTransport(send_grid));
   nodemailerMailgun.use('compile', hbs(options));
 
-  res.render('newsletter', {
+  /*res.render('newsletter', {
     name: 'Kommunity Newsletter'
   }, function(err, html) {
-
-    nodemailerMailgun.sendMail({
-      from: 'newsletter@kommunity.com',
-      to: req.body.email, // An array if you have multiple recipients.
-      //cc:'second@domain.com',
-      //bcc:'secretagent@company.gov',
-      subject: req.body.subject,
-      'h:Reply-To': 'newsletter@kommunity.com',
-      //You can use "html:" to send HTML email content. It's magic!
-      html: html
-      //You can use "text:" to send plain-text content. It's oldschool!
-      //text: 'Mailgun rocks, pow pow!'
-    }, function (err, info) {
-      if (err) {
-        console.log('Error: ' + err + '=>' + req.body.email);
-        nodemailerMailgun.close();
-        res.redirect('/?msg=failed to send newsletter');
-      }
-      else {
-        console.log('Response: ' + info + '=>' + req.body.email);
-        nodemailerMailgun.close();
-        res.redirect('/?msg=newsletter sent successfully');
+*/
+  newPosts = []
+   User.findOne({_id: req.body.user}, function (err,user){
+    for(var i = 0; i < user.groups.length; ++i){
+      if(user.groups[i].id === req.body.groupId){
+          newPosts = sortPosts(user.groups[i]);
+        }
       }
     });
 
+  nodemailerMailgun.sendMail({
+    from: 'newsletter@kommunity.com',
+    to: req.body.email, // An array if you have multiple recipients.
+    //cc:'second@domain.com',
+    //bcc:'secretagent@company.gov',
+    subject: req.body.subject,
+    'h:Reply-To': 'newsletter@kommunity.com',
+    //You can use "html:" to send HTML email content. It's magic!
+    template: "newsletter",
+    context: {
+        newsdate : req.body.newsdate,
+        newPosts: newPosts,
+        isNew: true,
+        isGroup: true,
+        // postType: req.query.postType,
+   }
+    //You can use "text:" to send plain-text content. It's oldschool!
+    //text: 'Mailgun rocks, pow pow!'
+  }, function (err, info) {
+    if (err) {
+      console.log('Error: ' + err + '=>' + req.body.email);
+      nodemailerMailgun.close();
+      res.redirect('/?msg=failed to send newsletter');
+    }
+    else {
+      console.log('Response: ' + info + '=>' + req.body.email);
+      nodemailerMailgun.close();
+      res.redirect('/?msg=newsletter sent successfully');
+    }
   });
+
+  //});
 
 });
