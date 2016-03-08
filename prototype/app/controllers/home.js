@@ -38,8 +38,28 @@ router.get('/new', function (req, res, next) {
   res.render('new');
 });
 
-router.get('/groups/new' , function (req,res,next){
-  res.render('newGroup');
+router.get('/group/new' , function (req,res,next){
+  //res.render('newGroup');
+  User.findOne({name : "Gabe"}, function (err, user) {
+    if (!user){
+      console.log("no user")
+        var newUser = new User({
+          name: "Gabe",
+        });
+
+        newUser.save(function (err) {
+          if (err) return console.error(err);
+        });
+        user = newUser;
+    }
+    res.render('newGroup', {
+      userName: user.name,
+      userId: user.id,
+      user: user.id,
+      groups: user.groups,
+      msg: req.query.msg
+    });
+  });
 });
 
 router.post('/posts/new/value' , function(req,res,next){
