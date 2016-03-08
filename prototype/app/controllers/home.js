@@ -24,10 +24,8 @@ router.get('/', function (req, res, next) {
         });
         user = newUser;
     }
-        var newPosts = []
-    for(var i = 0; i < user.groups.length; ++i){
-          newPosts.push(sortPosts(user.groups[i]))
-    }
+        var newPosts = sortAllPosts(user.groups)
+    console.log(newPosts)
     res.render('index', {
       userName: user.name,
       userId: user.id,
@@ -38,6 +36,36 @@ router.get('/', function (req, res, next) {
     });
   });
 });
+
+function sortAllPosts(groups){
+  // var categories = []
+  var newPosts = []
+  var newerPosts = []
+  // for(var j = 0; j < user.groups.length; ++j){
+  //   for(var i = 0; i < group.postStructures.length; ++i){
+  newPosts.push({"name": "Announcement", "posts": []})
+  newPosts.push({"name": "Job", "posts": []})
+  newPosts.push({"name": "Event", "posts": []})
+
+  //   }
+  // }
+  for(var k = 0; k < groups.length; ++k){
+    for(var i = 0; i < groups[k].newPosts.length; ++i){
+      for(var j= 0; j < newPosts.length; ++j){
+        if(groups[k].newPosts[i].name === newPosts[j].name){
+          newPosts[j].posts.unshift(groups[k].newPosts[i])
+          break;
+        }
+      }
+    }
+  }
+  for(var j= 0; j < newPosts.length; ++j){
+      if(newPosts[j].posts.length !== 0){
+        newerPosts.push(newPosts[j]);
+      }
+    }
+  return newerPosts
+}
 
 router.get('/new', function (req, res, next) {
   res.render('new');
