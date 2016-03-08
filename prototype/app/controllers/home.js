@@ -24,10 +24,15 @@ router.get('/', function (req, res, next) {
         });
         user = newUser;
     }
+        var newPosts = []
+    for(var i = 0; i < user.groups.length; ++i){
+          newPosts.push(sortPosts(user.groups[i]))
+    }
     res.render('index', {
       userName: user.name,
       userId: user.id,
       user: user.id,
+      newPosts: newPosts,
       groups: user.groups,
       msg: req.query.msg
     });
