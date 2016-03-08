@@ -56,3 +56,25 @@
   	font-family: 'FontAwesome';
   	content: "\f007";
 }
+.Job:before{
+	font-family: 'FontAwesome';
+  	content: "\f02e";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+.Announcement:before{
+	font-family: 'FontAwesome';
+  	content: "\f0a1";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+.Event:before{
+	font-family: 'FontAwesome';
+  	content: "\f133";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+
+.nav-tabs-custom{
+	margin-bottom: 0px;
+}

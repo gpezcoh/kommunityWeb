@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-md-12">
               <!-- Custom Tabs -->
-              <div class="nav-tabs-custom">
+              <div class="nav-tabs-custom ">
                 <ul class="nav nav-tabs">
                   <li{{#if isNew}} class="active"{{/if}}><a href="/posts/view?user={{user}}&#38;groupId={{groupId}}&#38;postType=New">New</a></li>
                   {{#each postStructures}}                
@@ -24,7 +24,7 @@
                     <a href="/posts/view?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{this}}">{{this}}s</a>
                   </li>
                   {{/each}}
-
+                  {{#if isNew}}{{else}}
                   <li class="dropdown pull-right">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="glyphicon glyphicon-plus"></span><span class="caret"></span>
@@ -36,9 +36,35 @@
                     {{/each}}
                   </ul>
                   </li>
-
+                  {{/if}}
                 </ul>
-                <div class="box box-primary">
+              </div><!-- nav-tabs-custom -->
+                {{#if isNew}}
+                  {{#each newPosts}}
+                    <div class="box box-primary">
+                      <div class="box-header">
+                        <h3 class="box-title"><div class="{{name}}">{{name}}</div></h3>
+                        <div class="box-tools pull-right">
+                          <a class="btn btn-box-tool" href="/posts/new?user={{../user}}&#38;groupId={{../groupId}}&#38;postType={{name}}"><i class="fa fa-plus"></i></a>
+                        </div>
+                      </div>
+                      {{#each posts}}
+                      <div class="box-body">
+                          <ul class="box-body col-md-12 info">
+                            {{#each categoryValues}}
+                              {{#with (lookup ../categoryNames @index)}}
+                                <div class="{{this}}"> {{../this}}</div>
+                              {{/with}}
+                            {{/each}}
+                          </ul>
+                      </div>
+                      {{/each}}
+                    </div><!-- /.box-content -->
+                    <div class="p-x-2"></div>
+                    {{/each}}
+                  <!-- /.tab-pane -->
+                {{else}}
+                  <div class="box box-primary">
                   {{#each posts}}
                   <ul class="box-body col-md-12 info">                      
                         {{#each categoryValues}}
@@ -48,25 +74,10 @@
                         {{/each}}
                   </ul>
                   {{/each}}
-                  {{#each newPosts}}
-                      <p>{{name}}<p>
-                      {{#each posts}}
-                      <ul class="box-body col-md-12 info">
-                            {{#each categoryValues}}
-                              {{#with (lookup ../categoryNames @index)}}
-                                <div class="{{this}}"> {{../this}}</div>
-                              {{/with}}
-                            {{/each}}
-                      </ul>
-                      {{/each}}
-                    {{/each}}
-                  <!-- /.tab-pane -->
-
-
-
-                  
-                </div><!-- /.tab-content -->
-              </div><!-- nav-tabs-custom -->
+                  </div><!-- /.tab-content -->
+                {{/if}} 
+                
+              
             </div><!-- /.col -->
-
+          </div>
         </section>
