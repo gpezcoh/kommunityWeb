@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 
 var PostSchema = new Schema({
   name: String,
+  group: String,
   categoryNames: [String],
   categoryValues: [String],
 });

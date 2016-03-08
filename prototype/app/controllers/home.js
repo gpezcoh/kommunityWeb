@@ -49,6 +49,8 @@ function sortAllPosts(groups){
 
   //   }
   // }
+
+  //CHANGE THIS LATER
   for(var k = 0; k < groups.length; ++k){
     for(var i = 0; i < groups[k].newPosts.length; ++i){
       for(var j= 0; j < newPosts.length; ++j){
@@ -103,6 +105,7 @@ router.post('/posts/new/value' , function(req,res,next){
              if(req.body.postName === "Announcement"){
                 var cats = ["Summary", "Description", "Title"];
                 var newPost = new Post({
+                  group: user.groups[i].name,
                   name: req.body.postName,
                   categoryNames: cats,
                   categoryValues: req.body.textBody
@@ -112,6 +115,7 @@ router.post('/posts/new/value' , function(req,res,next){
                 console.log("ayyy")
                 var cats = ["Title", "Description", "Date", "Location"];
                 var newPost = new Post({
+                  group: user.groups[i].name,
                   name: req.body.postName,
                   categoryNames: cats,
                   categoryValues: req.body.textBody
@@ -120,11 +124,13 @@ router.post('/posts/new/value' , function(req,res,next){
               else if(req.body.postName === "Job"){
                 var cats = ["Company", "Role", "Location", "Description", "Date"];
                 var newPost = new Post({
+                  group: user.groups[i].name,
                   name: req.body.postName,
                   categoryNames: cats,
                   categoryValues: req.body.textBody
                 });
               }
+              console.log(newPost.group)
               user.groups[i].posts.unshift(newPost)
               user.groups[i].newPosts.unshift(newPost)
               user.save(function (err,group) {
