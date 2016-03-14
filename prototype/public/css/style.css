@@ -1,0 +1,133 @@
+.Title{
+	width: 40%;
+	position: relative;
+	color: #428bca;
+	float: left;
+	font-weight: bold;
+}
+
+.Company{
+	width: 40%;
+	position: relative;
+	color: #428bca;
+	float: left;
+	font-weight: bold;
+}
+
+.Summary{
+	width: 100%;
+	position: relative;
+	color: #428bca;
+	float: left;
+	font-weight: bold;
+}
+
+.Description{
+	width: 100%;
+	float: left;
+}
+.Date{
+	width: 20%;
+	float: left;
+}
+.Date:before{
+	font-family: 'FontAwesome';
+  	content: "\f017";
+}
+.Location{
+	width: 40%;
+	float: left;
+}
+.Location:before {
+  	font-family: 'FontAwesome';
+  	content: "\f041";
+}
+
+.info{
+	background-color: #ffffff;
+	float: left;
+}
+
+.Role{
+	width: 20%;
+	float: left;
+}
+.Role:before{
+  	font-family: 'FontAwesome';
+  	content: "\f007";
+}
+.Job:before{
+	font-family: 'FontAwesome';
+  	content: "\f02e";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+.Announcement:before{
+	font-family: 'FontAwesome';
+  	content: "\f0a1";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+.Event:before{
+	font-family: 'FontAwesome';
+  	content: "\f133";
+  	padding-right: 5px;
+  	color:#3c8dbc;
+}
+
+.nav-tabs-custom{
+	margin-bottom: 0px;
+}
+
+.info-group {
+  display: block;
+  min-height: 50px;
+  background: #fff;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.info-group-icon {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  display: block;
+  float: left;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.info-group-icon > img {
+  max-width: 100%;
+}
+.info-group-content {
+  padding: 5px 10px;
+  margin-left: 50px;
+  font-weight: bold;
+}
+.info-group-number {
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
+}
+.info-group-text {
+  display: block;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.info-group-text {
+  text-transform: uppercase;
+}
+
+.col-group-1{
+	width:20%;
+}

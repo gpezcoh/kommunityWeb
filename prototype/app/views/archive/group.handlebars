@@ -1,0 +1,40 @@
+  <h1>{{title }}</h1>
+  <p>Welcome to {{title }}</p>
+  <a href="/">Home</a>
+  {{#each postStructures}}
+  	<p>{{this }}</p>
+  	<form action="/posts/new" method="POST">
+      <input name="user" value="{{../user}}" hidden>
+      <input name="groupId" value="{{../groupId}}" hidden>
+  		<input name="postType" value="{{this}}" hidden>
+  		<button type="submit">Create new {{this}}</button>
+  	</form>
+  	<form action="/posts/view" method="GET">
+      <input name="user" value="{{../user}}" hidden>
+  		<input name="groupId" value="{{../groupId}}" hidden>
+    	<input name="postType" value="{{this}}" hidden>
+  		<button type="submit">View {{this}}s</button>
+  	</form>
+
+  {{/each}}
+{{#if new}}
+  {{#each newPosts}}
+    </br>
+    <p> {{this.name}}</p>
+    {{#each categoryValues}}
+      {{#with (lookup ../categoryNames @index)}}
+        <p>{{this}}</p>
+        <p> {{../this}}</p>
+      {{/with}}
+    {{/each}}
+  {{/if}}
+{{#each posts}}
+	</br>
+	<p> {{this.name}}</p>
+	{{#each categoryValues}}
+    {{#with (lookup ../categoryNames @index)}}
+      <p>{{this}}</p>
+      <p> {{../this}}</p>
+    {{/with}}
+	{{/each}}
+{{/each}}

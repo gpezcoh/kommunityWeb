@@ -1,0 +1,72 @@
+     <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel 
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>Alexander Pierce</p>
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>-->
+          <!-- search form 
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+         /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu">
+            <li class="header">MAIN NAVIGATION</li>
+            <li>
+              <a href="/">
+                <i class="fa fa-th"></i> <span>Home</span> <!--<small class="label pull-right bg-red">2</small>-->
+              </a>
+            </li>
+            <!-- Club List -->
+            <li class="header">Club List</li>
+              {{#each groups}}
+            <li{{#compare id '==' ../groupId }} class="active"{{/compare}}><a href="/groups/{{../user}}/{{_id}}"><i class="fa fa-th"></i> {{name}}</a><small class="label pull-right bg-red"></small></li>
+              {{/each}}
+<!--
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-dashboard"></i> <span>Club Management</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Subscribe New Club</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Creat New Club</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> Delete Club</a></li>
+              </ul>
+            </li>
+          
+            <li class="header">Club</li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Subscribe New Club</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Creat New Club</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Delete Club</a></li>
+            <li class="header">Activity</li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Anouncements</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Jobs</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Events</a></li>-->
+            <li class="header">New Club</li>
+            <li><a href="/group/new"><i class="fa fa-edit"></i> Create New Club</a></li>
+            {{#if isGroup}}
+            <li class="header">Newsletter</li>
+            <li>
+              <a href="/newsletter/{{user}}/{{groupId}}">
+                <i class="fa fa-th"></i> <span>Send Email</span> <small class="label pull-right bg-green">new</small>
+              </a>
+            </li>
+            {{/if}}
+
+          </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
