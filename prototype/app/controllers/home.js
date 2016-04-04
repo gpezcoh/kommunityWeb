@@ -373,9 +373,6 @@ function checkNew(group){
     group.save(function (err,group) {
         if (err) return console.error(err);
     });
-    if(group.newPosts.length > 0){
-      checkNew(group);
-    }
   }
 }
 
