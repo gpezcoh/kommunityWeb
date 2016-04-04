@@ -27,7 +27,7 @@ var config = {
       name: 'prototype'
     },
     port: process.env.PORT,
-    db: 'mongodb://heroku_2v7v68mq:j0o1tu9n7tgmn09pe75rk5fts1@ds011298.mongolab.com:11298/heroku_2v7v68mq'
+    db: process.env.MONGOLAB_URI
   }
 };
 

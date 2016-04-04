@@ -25,7 +25,6 @@ router.get('/', function (req, res, next) {
         user = newUser;
     }
         var newPosts = sortAllPosts(user.groups)
-    console.log(newPosts)
     res.render('index', {
       userName: user.name,
       userId: user.id,
@@ -81,7 +80,7 @@ router.get('/group/new' , function (req,res,next){
         var newUser = new User({
           name: "Gabe",
         });
-
+        
         newUser.save(function (err) {
           if (err) return console.error(err);
         });
@@ -98,12 +97,11 @@ router.get('/group/new' , function (req,res,next){
 });
 
 router.post('/posts/new/value' , function(req,res,next){
-  console.log(req.body);
     User.findOne({_id: req.body.user}, function (err,user){
       for(var i = 0; i < user.groups.length; ++i){
         if(user.groups[i].id === req.body.groupId){
              if(req.body.postName === "Announcement"){
-                var cats = ["Summary", "Description", "Title"];
+                var cats = ["Title", "Description"];
                 var newPost = new Post({
                   group: user.groups[i].name,
                   name: req.body.postName,
@@ -130,7 +128,6 @@ router.post('/posts/new/value' , function(req,res,next){
                   categoryValues: req.body.textBody
                 });
               }
-              console.log(newPost.group)
               user.groups[i].posts.unshift(newPost)
               user.groups[i].newPosts.unshift(newPost)
               user.save(function (err,group) {
@@ -373,7 +370,9 @@ function checkNew(group){
     group.save(function (err,group) {
         if (err) return console.error(err);
     });
-    checkNew(group);
+    if(group.newPosts.length > 0){
+      checkNew(group);
+    }
   }
 }
 
